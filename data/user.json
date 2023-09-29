@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "mezo",
+        "email": "mamhoudzakarya97@gmail.com",
+        "password": "$2y$10$0EBuH.2\/42mSs2nE4DHHKOPepoU3iKFP.9wABWMJoA7eHwTWkyTza"
+    },
+    {
+        "id": 2,
+        "name": "Amr",
+        "email": "mamhoudzakar@gmail.com",
+        "password": "$2y$10$UWwIl8\/v7RSA8zQ1hkWnJOryQK1teb8WGzgjoGfmELTUSIJu\/ReIS"
+    },
+    {
+        "id": 3,
+        "name": "sdafsd",
+        "email": "ma@gs.asas",
+        "password": "$2y$10$\/Rx9Pg1g4zK....yOKWpGeC81tJxMV811J.Z76OmzqUr.izuxsuzS"
+    },
+    {
+        "id": 4,
+        "name": "Amr",
+        "email": "mamhoudzakarya94@gmail.com",
+        "password": "$2y$10$BWg2GI2r99eIe4dYmEzjSemIc91hFGGZV1h\/.8dZuwrAupbkgNAE2"
+    },
+    {
+        "id": 5,
+        "name": "mahmoud",
+        "email": "mamhoudzakarya130@gmail.com",
+        "password": "$2y$10$MAVLL34AdPJakuOA90hRluAG66umTOqj9QROcpXrBsELRD6OSNKSS"
+    }
+]
