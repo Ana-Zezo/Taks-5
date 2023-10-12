@@ -1,14 +1,19 @@
 <?php
 require_once "./inc/header.php";
 require_once "./core/helper.php";
-isLogin("./index.php");
-keySession("request_error");
-keySession("success_create", "success");
-keyAndValueSession("create_errors", "task-name");
+if (!isset($_SESSION["auth"])) {
+    redirect("./index.php");
+    die;
+}
 
 ?>
 <div class="container">
     <div class="row my-5">
+        <?php
+        keySession("request_error");
+        keySession("success_create", "success");
+        keyAndValueSession("create_errors", "task-name");
+        ?>
         <form action="./controller/CreateController.php" class="form-group" method="POST">
             <label for="text" class="form-label">Task</label>
             <input type="text" name="task-name" id="text" class="form-control w-25">

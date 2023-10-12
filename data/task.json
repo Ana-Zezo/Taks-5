@@ -1,22 +1,17 @@
-{
-    "1": {
-        "id": 2,
-        "task-name": "fasdfsd",
-        "user_id": 5
-    },
-    "2": {
-        "id": 3,
+[
+    {
+        "id": 1,
         "task-name": "sdafsd",
-        "user_id": 5
+        "user_id": 1
     },
-    "3": {
-        "id": 4,
-        "task-name": "fdgdfgdfg",
-        "user_id": 5
+    {
+        "id": 2,
+        "task-name": "sdafsd",
+        "user_id": 1
     },
-    "4": {
-        "id": 5,
-        "task-name": "dfgdfgdf",
-        "user_id": 5
+    {
+        "id": 3,
+        "task-name": "mezo",
+        "user_id": 1
     }
-}
+]

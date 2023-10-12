@@ -122,9 +122,12 @@ if (!function_exists("isLogin")) {
     }
 }
 
-function dd($i)
+
+function dd(...$args)
 {
     echo "<pre>";
-    print_r($i);
+    foreach ($args as $arg) {
+        print_r($arg);
+    }
     echo "</pre>";
 }

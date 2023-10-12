@@ -1,18 +1,30 @@
 <?php
 require_once "./inc/header.php";
 require_once "./core/helper.php";
-isLogin("./index.php");
+if (!isset($_SESSION["auth"])) {
+    redirect("./index.php");
+    die;
+}
 
 $tasks = readFromJsonFile("./data/task.json");
-$myTasks = [];
 if ($tasks != null) {
     foreach ($tasks as $task) {
-        $myTasks[] = $task;
+        if ($task["user_id"] == $_SESSION["auth"]["id"]) {
+            $data[] = $task;
+        }
+    }
+    if (!isset($data)) {
+        $_SESSION["first_task"] = "Create First Task";
     }
 }
-keySession("not_exist");
 ?>
 <div class="container my-5">
+    <?php
+    keySession("first_task", "info");
+    keySession("request_error");
+    keySession("request_error");
+    keyAndValueSession("errors", "name")
+        ?>
     <div class="row col-12 d-flex">
         <div class="col-4">
             <div class="card" style="width: 20rem;">
@@ -30,6 +42,9 @@ keySession("not_exist");
         <div class="col-8">
             <a href="create.php" class="btn btn-success mb-3">Create Task</a>
             <table class="table">
+                <?php
+                if (isset($data)) {
+                    ?>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -38,28 +53,30 @@ keySession("not_exist");
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (@$myTasks != null) {
-                        foreach ($myTasks as $value) { ?>
-                            <tr>
-                                <th scope="row">
-                                    <?= $value["id"]; ?>
-                                </th>
-                                <td>
-                                    <?= $value["task-name"]; ?>
-                                </td>
-                                <td class="mx-auto">
-                                    <a href="./edit.php?id=<?= $value["id"] ?>" class="btn btn-info ">Edit</a>
-                                    <a href="./controller/DeleteController.php?id=<?= $value["id"] ?>"
-                                        class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                        <?php }
-                    } else {
-                        $myTasks = [];
-                        $_SESSION["Empty_Data"] = "Create The First Task";
-                        keySession("Empty_Data", "info");
-                    } ?>
+                    <?php
+                        foreach ($data as $task) {
+                            ?>
+                    <tr>
+
+                        <th scope="row">
+                            <?= $task["id"] ?>
+                        </th>
+                        <td>
+                            <?= $task["task-name"] ?>
+                        </td>
+                        <td class="mx-auto">
+                            <a href="./edit.php?id=<?= $task["id"] ?>" class="btn btn-info ">Edit</a>
+                            <a href="./controller/DeleteController.php?id=<?= $task["id"] ?>"
+                                class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <?php
+                        }
+                        ?>
                 </tbody>
+                <?php
+                }
+                ?>
             </table>
         </div>
     </div>
